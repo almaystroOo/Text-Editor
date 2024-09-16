@@ -34,9 +34,11 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumWords()
 	{
+		List<String> wordList = getTokens("[a-zA-Z]+");
 		//TODO: Implement this method in week 2 according to the comments above.  
 		// See the Module 2 support videos if you need help.
-	    return 0;
+		//System.out.println("getNumWords"+wordList.size());
+	    return wordList.size();
 	}
 	
 	/**
@@ -56,7 +58,11 @@ public class BasicDocument extends Document
 	{
 	    //TODO: Implement this method.  See the Module 2 support videos 
         // if you need help.
-        return 0;
+		List<String> sentencesList = getTokens("[^.?!]+");
+		//TODO: Implement this method in week 2 according to the comments above.
+		// See the Module 2 support videos if you need help.
+		//System.out.println("getNumSentences:"+sentencesList.size());
+		return sentencesList.size();
 	}
 	
 	/**
@@ -76,12 +82,30 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSyllables()
 	{
+		int initialCount=0;
 	    //TODO: Implement this method in week 2.  See the Module 2 support videos 
         // if you need help.  And note that there is no need to use a regular
 		// expression for the syllable counting.  We recommend you implement 
 		// the helper function countSyllables in Document.java using a loop, 
 		// and then call it here on each word.
-        return 0;
+//		List<String> wordList = getTokens("[a-zA-Z]+");
+//		for(String w:wordList){
+//		initialCount+=countSyllables(w);
+//		}
+//
+//        return initialCount;
+		String text = new String("My ");
+		text.concat("String");
+		List<String> tokens = getTokens("[a-zA-Z]+");
+		int totalSyllables = 0;
+		for (String word : tokens)
+		{
+			int count =countSyllables(word);
+			totalSyllables += count;
+			//System.out.println("word:"+word+"count:"+count);
+		}
+		//System.out.println("word:"+word);
+		return totalSyllables;
 	}
 	
 	
