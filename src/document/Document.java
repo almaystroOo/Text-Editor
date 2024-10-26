@@ -70,6 +70,7 @@ public abstract class Document {
         //System.out.print("Counting syllables in " + word + "...");
         int numSyllables = 0;
         String prevVowel = "";
+        char rn ;
         boolean newSyllable = true;
         Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
         word = word.toLowerCase();
@@ -81,7 +82,7 @@ public abstract class Document {
 //            }
 
             if (newSyllable && vowels.contains(i)) {
-                newSyllable = false;
+               newSyllable = false;
                 // prevVowel= String.valueOf(i);
                 numSyllables++;
             } else if (!vowels.contains(i)) {
